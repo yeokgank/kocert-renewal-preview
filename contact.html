@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상담 신청 · 견적 문의 | 코서트</title>
+<meta name="description" content="코서트 상담 신청, 견적 문의, 불편 사항 접수. 영업일 1일 내 담당 컨설턴트가 연락드립니다.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" href="index.html" aria-label="코서트 홈"><img src="assets/images/logo.png" alt="KOCERT (주)코서트" width="236" height="50"></a>
+    <nav class="nav" aria-label="주 메뉴">
+      <a href="index.html#services">서비스</a>
+      <a href="cases.html">사례</a>
+      <a href="guides.html">인증 가이드</a>
+      <a href="contact.html" aria-current="page">고객지원</a>
+      <a href="company.html">회사</a>
+    </nav>
+    <div class="header__util">
+      <a class="header__tel" href="tel:0260120821">02-6012-0821</a>
+      <a class="btn btn--ink btn--sm" href="contact.html?type=quote">견적 문의</a>
+      <button class="header__menu" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="crumb" aria-label="현재 위치"><a href="index.html">홈</a><span>고객지원</span></nav>
+      <div class="page-hero__row">
+        <div>
+          <p class="eyebrow">고객지원</p>
+          <h1 class="h1" id="page-title">무엇이 필요한지 몰라도<br>여기서 시작하면 됩니다</h1>
+          <p class="lead" style="margin-top:1.5rem">성적서인지 인증인지, 어느 기관인지 정해지지 않아도 괜찮습니다. 상황만 적어 주시면 영업일 1일 내 담당 컨설턴트가 연락드립니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="form-title">
+    <div class="container">
+      <h2 class="sr-only" id="form-title">문의 양식</h2>
+      <div class="form-tabs"><div class="pills" role="tablist">
+        <button class="pill" role="tab" aria-selected="true">상담 신청</button>
+        <button class="pill" role="tab" aria-selected="false">견적 문의</button>
+        <button class="pill" role="tab" aria-selected="false">불편 사항</button>
+      </div></div>
+      <div class="form-layout">
+        <aside class="form-aside">
+          <div class="card">
+            <p class="caption">전화가 편하시면</p>
+            <a class="cta__tel" href="tel:0260120821">02-6012-0821</a>
+            <p class="caption">평일 09:00 – 18:00 · kocert821@kocert.net</p>
+          </div>
+          <div class="card">
+            <h3 class="h3" style="font-size:1.125rem">이렇게 진행됩니다</h3>
+            <ol class="faq" style="gap:0">
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">1일</strong> · 담당 컨설턴트 배정, 전화 또는 메일로 상황 확인</li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">2~3일</strong> · 필요한 성적서·인증 종류와 예상 일정, 견적 전달</li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">이후</strong> · 계약 후 항목 도출과 기관 매칭 착수</li>
+            </ol>
+          </div>
+          <div class="card" id="forms">
+            <h3 class="h3" style="font-size:1.125rem">양식 다운로드</h3>
+            <ul class="faq" style="gap:0">
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><a class="link" href="#">시험 신청서 (공통)</a></li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><a class="link" href="#">기능 목록 작성 양식 (GS인증)</a></li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><a class="link" href="#">제품 사양서 양식 (KC인증)</a></li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><a class="link" href="#">평가 항목 정의서 예시 (R&amp;D)</a></li>
+            </ul>
+          </div>
+        </aside>
+        <form class="form-card" onsubmit="return false" aria-label="상담 신청">
+          <div class="field">
+            <span>필요한 서비스 <span class="req">*</span></span>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" checked><span>KOLAS 공인시험성적서</span></label>
+              <label class="chip"><input type="checkbox"><span>GS인증</span></label>
+              <label class="chip"><input type="checkbox"><span>KC인증</span></label>
+              <label class="chip"><input type="checkbox"><span>클라우드서비스 확인제</span></label>
+              <label class="chip"><input type="checkbox"><span>기술 자문</span></label>
+              <label class="chip"><input type="checkbox"><span>아직 모르겠어요</span></label>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="f-company">기업명 <span class="req">*</span></label><input id="f-company" type="text" placeholder="(주)코서트"></div>
+            <div class="field"><label for="f-name">담당자 <span class="req">*</span></label><input id="f-name" type="text" placeholder="이름 · 직책"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="f-tel">연락처 <span class="req">*</span></label><input id="f-tel" type="tel" placeholder="010-0000-0000"></div>
+            <div class="field"><label for="f-email">이메일 <span class="req">*</span></label><input id="f-email" type="email" placeholder="name@company.com"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="f-type">제품 유형</label><select id="f-type"><option>소프트웨어 (패키지 · SaaS)</option><option>ICT 기기 · 전자제품</option><option>데이터 · AI 모델</option><option>정보시스템 · 구축 사업</option><option>기타</option></select></div>
+            <div class="field"><label for="f-when">희망 일정</label><select id="f-when"><option>1개월 이내</option><option>1~3개월</option><option>3개월 이후</option><option>미정</option></select></div>
+          </div>
+          <div class="field">
+            <label for="f-purpose">목적</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="purpose" checked><span>R&amp;D 과제 평가</span></label>
+              <label class="chip"><input type="radio" name="purpose"><span>공공 조달 · 납품</span></label>
+              <label class="chip"><input type="radio" name="purpose"><span>제품 출시</span></label>
+              <label class="chip"><input type="radio" name="purpose"><span>벤더 등록 · 투자</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="f-msg">상황 설명 <span class="req">*</span></label><textarea id="f-msg" placeholder="예) 스마트팩토리 SW 과제가 11월 종료인데, 계획서의 정량 목표 5개를 공인 성적서로 증빙해야 합니다. 목표 중 '응답시간 1초 이내'와 '정확도 95% 이상'이 시험 가능한지 모르겠습니다."></textarea></div>
+          <div class="field"><span>첨부 (선택)</span><div class="upload"><strong>계획서 · 사양서 · 기능 목록을 끌어다 놓거나 클릭해 선택</strong>PDF, DOCX, XLSX · 20MB 이하 · 여러 파일 가능</div></div>
+          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 기업명, 담당자, 연락처, 이메일이며 상담 목적으로만 사용하고 상담 종료 후 1년간 보관합니다. <a href="#" style="text-decoration:underline">전문 보기</a></span></label>
+          <button class="btn btn--ink" type="submit">상담 신청</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/images/logo.png" alt="KOCERT (주)코서트" width="236" height="50">
+        <p class="caption">소프트웨어 · ICT 제품의 공인시험성적서와<br>국내 주요 인증 획득을 대행하는 인증 컨설팅 기업</p>
+      </div>
+      <div class="footer__col"><strong>서비스</strong><a href="rnd.html">R&amp;D 기술서비스</a><a href="gs.html">GS인증</a><a href="kc.html">KC인증</a><a href="cloud.html">클라우드서비스 확인제</a><a href="rnd.html#related">기술 자문</a></div>
+      <div class="footer__col"><strong>사례 · 가이드</strong><a href="cases.html">고객 사례</a><a href="guides.html">인증 가이드</a><a href="guides.html#glossary">용어 사전</a></div>
+      <div class="footer__col"><strong>고객지원</strong><a href="contact.html">상담 신청</a><a href="contact.html?type=quote">견적 문의</a><a href="index.html#support">자주 묻는 질문</a><a href="contact.html#forms">양식 다운로드</a><a href="contact.html?type=feedback">불편 사항</a></div>
+      <div class="footer__col"><strong>회사</strong><a href="company.html">회사소개</a><a href="company.html#cert">KOLAS 인정서</a><a href="company.html#map">오시는 길</a><a href="#">공평성 선언서</a><a href="#">개인정보처리방침</a></div>
+    </div>
+    <div class="footer__bottom">
+      <div>
+        <p class="footer__tel">02-6012-0821</p>
+        <p>(주)코서트 · 대표 박재준 · 사업자등록번호 398-81-03975<br>서울특별시 강서구 공항대로 242 열린M타워Ⅱ 1214호 · kocert821@kocert.net</p>
+      </div>
+      <p>© 2026 Kocert Co., Ltd.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
