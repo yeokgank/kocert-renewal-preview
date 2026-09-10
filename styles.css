@@ -636,12 +636,3 @@ body.has-ambient { background: transparent; }
 .quick__icon { background: var(--color-brand-soft); }
 .quick__item:hover { background: #f3f8ff; }
 .quick__foot { border-top-color: rgba(13, 72, 133, 0.12); }
-
-/* ---- quick service card: gradient + drifting glow ---- */
-.quick { position: relative; overflow: hidden; background: linear-gradient(160deg, #ffffff 0%, #f7fafe 45%, #e9f1fb 100%); }
-.quick::before, .quick::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
-.quick::before { width: 360px; height: 360px; right: -140px; top: -160px; background: radial-gradient(circle, rgba(13, 72, 133, 0.18), rgba(13, 72, 133, 0) 65%); animation: quick-glow 12s ease-in-out infinite; }
-.quick::after { width: 300px; height: 300px; left: -140px; bottom: -150px; background: radial-gradient(circle, rgba(143, 193, 238, 0.35), rgba(143, 193, 238, 0) 65%); animation: quick-glow 15s ease-in-out infinite reverse; }
-.quick > * { position: relative; z-index: 1; }
-@keyframes quick-glow { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 24px) scale(1.15); } }
-@media (prefers-reduced-motion: reduce) { .quick::before, .quick::after { animation: none; } }
