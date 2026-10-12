@@ -672,3 +672,18 @@ body.has-ambient { background: transparent; }
 @media (max-width: 900px) { .tests__grid, .impartiality__box { grid-template-columns: 1fr; } .nav__item { display: none; } }
 .h1, .h2, .h3, .case__title { overflow-wrap: anywhere; }
 .field[hidden] { display: none; }
+
+/* ---- 공인시험 규격별 개요 블록 ---- */
+.std-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-card); }
+.std { background: #fff; border: 1px solid rgba(13, 72, 133, 0.10); border-radius: var(--radius-card); padding: 2.25rem; display: grid; gap: 1.25rem; align-content: start; box-shadow: 0 30px 60px -44px rgba(11, 31, 58, 0.35); }
+.std__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: start; }
+.std__desc { margin-top: 0.75rem; color: var(--color-text); line-height: 1.6; }
+.std__mark { display: grid; justify-items: center; gap: 0.4rem; padding: 0.9rem; border-radius: 16px; background: var(--color-brand-soft); text-align: center; font-size: var(--text-label); font-weight: 600; color: var(--color-brand); line-height: 1.3; }
+.std__mark img { height: 40px; width: auto; }
+.std__sub { font-size: 1.0625rem; font-weight: 600; color: var(--color-title); padding-bottom: 0.6rem; border-bottom: 2px solid var(--color-brand); }
+.std__list { display: grid; gap: 0; margin: 0; }
+.std__list div { display: grid; grid-template-columns: 84px 1fr; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: var(--text-caption); line-height: 1.55; }
+.std__list div:last-child { border-bottom: 0; }
+.std__list dt { color: var(--color-muted); }
+.std__list dd { margin: 0; color: var(--color-title); }
+@media (max-width: 900px) { .std-grid { grid-template-columns: 1fr; } .std__head { grid-template-columns: 1fr; } .std__mark { justify-self: start; grid-auto-flow: column; align-items: center; } }
