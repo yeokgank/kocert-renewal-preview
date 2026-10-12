@@ -18,8 +18,9 @@
   if (menuBtn && nav) {
     const drawer = document.createElement('div');
     drawer.className = 'drawer'; drawer.hidden = true;
-    drawer.innerHTML = `<nav class="drawer__nav" aria-label="모바일 메뉴">${nav.innerHTML}</nav>
-      <div class="drawer__foot"><a class="btn btn--ink" href="contact.html?type=quote">견적 문의</a><a class="drawer__tel" href="tel:0260120821">02-6012-0821</a></div>`;
+    const flat = $$(':scope > a, :scope > .nav__item', nav).map(el => el.matches('a') ? el.outerHTML : `${$(':scope > a', el).outerHTML}<div class="drawer__sub">${$('.nav__sub', el).innerHTML}</div>`).join('');
+    drawer.innerHTML = `<nav class="drawer__nav" aria-label="모바일 메뉴">${flat}</nav>
+      <div class="drawer__foot"><a class="btn btn--ink" href="contact.html">견적문의</a><a class="drawer__tel" href="tel:0260120821">02-6012-0821</a></div>`;
     header.after(drawer);
     const set = open => { drawer.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기'); menuBtn.classList.toggle('is-open', open); document.body.classList.toggle('is-locked', open); };
     menuBtn.setAttribute('aria-expanded', 'false');
@@ -49,9 +50,9 @@
     download: '<path d="M12 4v11M7 10l5 5 5-5M4 19h16"/>',
   };
   const TABS = {
-    '시험성적서': [['doc', 'R&D 과제<br>성적서', 'rnd.html'], ['chart', '제품 상용화<br>성적서', 'rnd.html#uses'], ['list', '평가 항목<br>도출', 'rnd.html#process'], ['link', '시험기관<br>매칭', 'rnd.html#process'], ['data', '데이터 품질<br>시험', 'rnd.html#compare'], ['check', '기능적합성<br>시험', 'rnd.html#compare']],
+    '시험성적서': [['doc', '공인시험<br>성적서', 'test-accredited.html'], ['chart', '일반시험<br>성적서', 'test-general.html'], ['check', '기능적합성<br>시험', 'test-accredited.html#compare'], ['data', '데이터 품질<br>시험', 'test-accredited.html#compare'], ['list', '평가 항목<br>정의', 'test-accredited.html#process'], ['target', '발급<br>프로세스', 'test-accredited.html#process']],
     '인증': [['shield', 'GS인증', 'gs.html'], ['grade', 'KC인증', 'kc.html'], ['cloud', '클라우드<br>확인제', 'cloud.html'], ['target', '등급 · 유형<br>판별', 'gs.html#compare'], ['bug', '사전 결함<br>점검', 'gs.html#process'], ['cart', '조달 등록<br>지원', 'gs.html#uses']],
-    '자문': [['chat', '기술 자문<br>상담', 'contact.html'], ['calendar', '견적 · 일정<br>조율', 'contact.html?type=quote'], ['target', '과제 목표<br>재정의', 'rnd.html#process'], ['map', '인증<br>로드맵', 'guides.html'], ['download', '양식<br>다운로드', 'contact.html#forms'], ['check', '상담<br>신청', 'contact.html']],
+    '고객지원': [['chat', '견적문의', 'contact.html'], ['list', 'Q&amp;A', 'faq.html'], ['bug', '불만접수', 'contact.html?type=complaint'], ['map', '오시는 길', 'company.html#map'], ['check', '공평성<br>선언서', 'company.html#impartiality'], ['calendar', '전화<br>02-6012-0821', 'tel:0260120821']],
   };
   const quick = $('.quick');
   if (quick) {
@@ -88,20 +89,21 @@
     if (count) count.dataset.all = count.textContent;
   });
 
-  /* ---------- contact form tabs: switch heading / button / fields ---------- */
+  /* ---------- contact form tabs: 견적문의 / 불만접수 ---------- */
   const formTabs = $('.form-tabs .pills');
   if (formTabs) {
-    const form = $('.form-card'), submit = $('.form-card .btn'), msg = $('#f-msg'), svc = $$('.form-card .field')[0];
+    const form = $('.form-card'), submit = $('.form-card .btn'), msg = $('#f-msg'), svc = $$('.form-card .field')[0], purpose = $$('.form-card .field').find(f => f.querySelector('label[for="f-purpose"]'));
     const apply = key => {
-      $$('.pill', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key)));
-      form.setAttribute('aria-label', key); submit.textContent = key;
-      if (svc) svc.hidden = key === '불편 사항';
-      msg.placeholder = key === '견적 문의' ? '예) GS인증 1등급 대상 웹 기반 인사관리 SaaS, 화면 약 60개. 기능 목록 첨부합니다. 조달 등록이 목적이라 12월 안에 인증서가 필요합니다.' : key === '불편 사항' ? '불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다.' : msg.dataset.ph;
+      $$('.pill[role="tab"]', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key)));
+      form.setAttribute('aria-label', key); submit.textContent = key === '불만접수' ? '불만접수' : '견적문의';
+      const complaint = key === '불만접수';
+      if (svc) svc.hidden = complaint; if (purpose) purpose.hidden = complaint;
+      msg.placeholder = complaint ? '불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다.' : msg.dataset.ph;
     };
     msg.dataset.ph = msg.placeholder;
-    formTabs.addEventListener('click', e => { const p = e.target.closest('.pill'); if (p) apply(p.textContent.trim()); });
+    formTabs.addEventListener('click', e => { const p = e.target.closest('.pill[role="tab"]'); if (p) apply(p.textContent.trim()); });
     const type = new URLSearchParams(location.search).get('type');
-    if (type === 'quote') apply('견적 문의'); else if (type === 'feedback') apply('불편 사항');
+    if (type === 'complaint') apply('불만접수');
   }
 
   /* ---------- scroll reveal ---------- */
@@ -199,5 +201,7 @@
 
   /* ---------- mark current nav item ---------- */
   const here = location.pathname.split('/').pop() || 'index.html';
-  $$('.nav a, .drawer__nav a').forEach(a => { const h = a.getAttribute('href').split('#')[0]; if (h && h === here) a.setAttribute('aria-current', 'page'); });
+  $$('.nav__sub a, .drawer__sub a').forEach(a => { const h = a.getAttribute('href').split('#')[0].split('?')[0]; if (h && h === here) { a.setAttribute('aria-current', 'page'); const top = a.closest('.nav__item'); if (top) $(':scope > a', top).setAttribute('aria-current', 'page'); } });
+  /* hover/focus dropdowns */
+  $$('.nav__item').forEach(it => { const trigger = $(':scope > a', it); it.addEventListener('focusin', () => it.classList.add('is-open')); it.addEventListener('focusout', e => { if (!it.contains(e.relatedTarget)) it.classList.remove('is-open'); }); trigger.addEventListener('keydown', e => { if (e.key === 'ArrowDown') { e.preventDefault(); const f = $('.nav__sub a', it); if (f) f.focus(); } }); it.addEventListener('keydown', e => { if (e.key === 'Escape') { it.classList.remove('is-open'); trigger.focus(); } }); });
 })();

@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GS인증 컨설팅 | 코서트</title>
-<meta name="description" content="GS(Good Software)인증 획득 컨설팅. 대상 판별, 사전 결함 점검, 시험기관 접수부터 인증서 수령까지 코서트가 대행합니다. 1등급 기준 소요 6~8주.">
+<title>GS인증 | 코서트</title>
+<meta name="description" content="GS(Good Software)인증 취득 지원. 대상 판별, 사전 결함 점검, 인증기관 접수부터 인증서 수령까지 코서트가 함께합니다. 처리기간 신청일로부터 최소 30일.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="header">
   <div class="container header__inner">
-    <a class="header__logo" href="index.html" aria-label="코서트 홈"><img src="assets/images/logo.png" alt="KOCERT (주)코서트" width="236" height="50"></a>
+    <a class="header__logo" href="index.html" aria-label="코서트 메인"><img src="assets/images/logo.png" alt="KOCERT (주)코서트" width="236" height="50"></a>
     <nav class="nav" aria-label="주 메뉴">
-      <a href="index.html#services" aria-current="page">서비스</a>
-      <a href="cases.html">사례</a>
-      <a href="guides.html">인증 가이드</a>
-      <a href="contact.html">고객지원</a>
-      <a href="company.html">회사</a>
+      <div class="nav__item has-sub"><a href="test-accredited.html" aria-haspopup="true">시험</a><div class="nav__sub"><a href="test-accredited.html">공인시험</a><a href="test-general.html">일반시험</a></div></div>
+      <div class="nav__item has-sub"><a href="gs.html" aria-current="page" aria-haspopup="true">인증</a><div class="nav__sub"><a href="gs.html">GS인증</a><a href="kc.html">KC인증</a><a href="cloud.html">클라우드서비스확인제</a></div></div>
+      <div class="nav__item has-sub"><a href="contact.html" aria-haspopup="true">고객지원</a><div class="nav__sub"><a href="contact.html">견적문의</a><a href="faq.html">Q&amp;A</a><a href="contact.html?type=complaint">불만접수</a></div></div>
+      <a href="company.html">회사소개</a>
+      <a href="contact.html">상담문의</a>
     </nav>
     <div class="header__util">
       <a class="header__tel" href="tel:0260120821">02-6012-0821</a>
-      <a class="btn btn--ink btn--sm" href="contact.html?type=quote">견적 문의</a>
+      <a class="btn btn--ink btn--sm" href="contact.html">견적문의</a>
       <button class="header__menu" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -29,65 +29,63 @@
 
 <main>
 
-  <!-- ① 히어로: h1 좌 / 대상·기준·목적 우 -->
   <section class="page-hero page-hero--video" aria-labelledby="page-title">
     <video class="page-hero__video" autoplay muted loop playsinline preload="none" poster="media/video/kocert_gs_1280x720_poster.jpg" data-src="media/video/kocert_gs_1280x720" aria-hidden="true"></video>
     <div class="container">
-      <nav class="crumb" aria-label="현재 위치"><a href="index.html">홈</a><span><a href="index.html#services">인증 컨설팅</a></span><span>GS인증</span></nav>
+      <nav class="crumb" aria-label="현재 위치"><a href="index.html">메인</a><span><a href="gs.html">인증</a></span><span>GS인증</span></nav>
       <div class="page-hero__row">
         <div>
-          <p class="eyebrow">인증 컨설팅</p>
+          <p class="eyebrow">인증</p>
           <h1 class="h1" id="page-title">GS인증,<br>첫 심사에서 끝내는 방법</h1>
-          <p class="lead" style="margin-top:1.5rem">GS(Good Software)인증은 국산 소프트웨어의 품질을 국가가 증명하는 인증입니다. 공공 조달과 우선구매의 조건이지만, 접수 후 결함으로 재시험을 겪는 기업이 절반이 넘습니다. 코서트는 접수 전 결함을 잡아 한 번에 통과시킵니다.</p>
+          <p class="lead" style="margin-top:1.5rem">GS(Good Software)인증은 ISO 국제표준을 기준으로 소프트웨어 품질을 수치화해 과학기술정보통신부 지정 인증기관이 부여하는 국가 인증입니다. 공공 조달과 우선구매의 조건이지만, 접수 후 결함으로 재시험을 겪는 기업이 많습니다. 코서트는 접수 전 결함을 먼저 걸러 한 번에 통과하도록 지원합니다.</p>
           <div class="page-hero__actions">
-            <a class="btn btn--ink" href="#contact">GS인증 상담 신청</a>
-            <a class="btn btn--outline" href="#compare">1등급·2등급 비교</a>
+            <a class="btn btn--ink" href="contact.html">GS인증 견적문의</a>
+            <a class="btn btn--outline" href="#process">발급 프로세스 보기</a>
           </div>
         </div>
         <dl class="facts">
-          <div><dt>대상</dt><dd>패키지 SW, 임베디드 SW, 웹·모바일 서비스 등 국내에서 개발한 소프트웨어 제품</dd></div>
-          <div><dt>기준</dt><dd>ISO/IEC 25023(제품 품질 측정), ISO/IEC 25051(RUSP 요구사항) 기반 국가 표준</dd></div>
-          <div><dt>인증기관</dt><dd>TTA SW시험인증연구소, KTL 등 국가 지정 인증기관</dd></div>
-          <div><dt>등급</dt><dd>1등급 · 2등급</dd></div>
-          <div><dt>소요</dt><dd>코서트 진행 시 6~8주 (직접 진행 시 평균 12주)</dd></div>
+          <div><dt>대상</dt><dd>개발이 완료된 모든 소프트웨어 (패키지 · 임베디드 · 웹·모바일 서비스)</dd></div>
+          <div><dt>목적</dt><dd>ISO 국제표준 기준으로 SW 품질을 수치화하여 인증 부여</dd></div>
+          <div><dt>법적 근거</dt><dd>소프트웨어진흥법 시행령 제15조(소프트웨어 품질인증의 실시) · 소프트웨어 품질인증 운영에 관한 지침(과기정통부 고시)</dd></div>
+          <div><dt>인증기관</dt><dd>KTL · TTA · KTR · KTC · 부산IT융합부품연구소</dd></div>
+          <div><dt>처리기간</dt><dd>신청일로부터 최소 30일 이상</dd></div>
+          <div><dt>유효기간</dt><dd>없음 (버전업 · 형상 변경 시 재인증 필요)</dd></div>
         </dl>
       </div>
     </div>
     <nav class="subnav" aria-label="페이지 내 이동">
       <div class="container subnav__inner">
-        <a href="#uses">이런 경우 필요합니다</a>
+        <a href="#uses">취득 이점</a>
         <a href="#compare">등급 비교</a>
-        <a href="#process">진행 절차</a>
+        <a href="#process">발급 프로세스</a>
         <a href="#docs">준비 서류</a>
+        <a href="#cases">사례</a>
         <a href="#faq">자주 묻는 질문</a>
-        <a href="#related">관련 서비스</a>
-        <a href="#contact">담당 컨설턴트</a>
+        <a href="#contact">견적문의</a>
       </div>
     </nav>
   </section>
 
-  <!-- ② 용도 -->
   <section class="section" id="uses" aria-labelledby="uses-title">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">이런 경우 필요합니다</p>
-          <h2 class="h2" id="uses-title">GS인증이 조건이 되는 여섯 가지 상황</h2>
+          <p class="eyebrow">취득 이점</p>
+          <h2 class="h2" id="uses-title">GS인증으로 얻는 여섯 가지</h2>
         </div>
-        <div class="section-head__aside"><p class="lead">하나라도 해당되면 인증 없이는 진입이 어렵습니다. 어떤 상황인지 알려주시면 등급과 일정을 바로 잡아 드립니다.</p></div>
+        <div class="section-head__aside"><p class="lead">품질 개선, 마케팅, 제도적 혜택 세 측면입니다. 공공 납품이 목적이면 사실상 필수 조건입니다.</p></div>
       </div>
       <div class="uses__grid">
-        <div class="use"><span class="use__no">01</span><strong>공공기관 납품 · 조달 등록</strong><p>조달청 종합쇼핑몰(나라장터) 등록과 공공기관 소프트웨어 구매의 기본 요건입니다.</p></div>
-        <div class="use"><span class="use__no">02</span><strong>우선구매 제도 활용</strong><p>GS인증 1등급 제품은 공공기관 우선구매 대상으로 수의계약 등 구매 절차에서 우대받습니다.</p></div>
-        <div class="use"><span class="use__no">03</span><strong>정부 R&amp;D 과제 결과 증빙</strong><p>과제 최종 평가에서 결과물의 품질을 제3자 인증으로 입증할 때 성적서와 함께 요구됩니다.</p></div>
-        <div class="use"><span class="use__no">04</span><strong>대기업 · 금융권 벤더 등록</strong><p>협력사 등록 심사에서 품질 인증 보유 여부가 가점 또는 필수 항목으로 들어갑니다.</p></div>
-        <div class="use"><span class="use__no">05</span><strong>투자 · 정책자금 심사</strong><p>기술 신용평가와 정책자금 심사에서 제품 완성도를 객관적으로 보여주는 자료가 됩니다.</p></div>
-        <div class="use"><span class="use__no">06</span><strong>출시 전 품질 점검</strong><p>인증 시험 자체가 기능·성능·사용성 전반의 제3자 테스트라 출시 전 결함을 걸러내는 효과가 있습니다.</p></div>
+        <div class="use"><span class="use__no">01</span><strong>조달청 제3자 단가계약 · 나라장터 등록</strong><p>구매기관의 수의계약이 가능해져 공공기관 납품 경로가 열립니다.</p></div>
+        <div class="use"><span class="use__no">02</span><strong>공공기관 우선구매 대상 지정</strong><p>GS인증 제품은 우선구매 대상 기술개발 제품으로 지정되며 구매자 면책·성능보험 제도의 대상이 됩니다.</p></div>
+        <div class="use"><span class="use__no">03</span><strong>공공 정보화사업 우선 도입</strong><p>행정·공공 정보화사업 구축·운영 시 우선 도입 대상 제품으로 지정됩니다.</p></div>
+        <div class="use"><span class="use__no">04</span><strong>SW 기술성 평가 우선 반영</strong><p>공공기관 상용 SW 구매 시 기술성 평가 항목에 제품 신뢰도 향상 항목으로 반영됩니다.</p></div>
+        <div class="use"><span class="use__no">05</span><strong>제3자 인증으로 품질 개선</strong><p>단기간에 결함을 발견·개선해 비용과 시간을 절감하고, 인증 제품은 swit.or.kr에 게재됩니다.</p></div>
+        <div class="use"><span class="use__no">06</span><strong>분리발주 · 하도급 가점</strong><p>분리발주 대상 SW 요건에 해당하고, SW사업 하도급계약 적정성 판단 시 가점(2점)이 부여됩니다.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ③ 등급 비교 -->
   <section class="section" id="compare" aria-labelledby="compare-title" style="padding-top:0">
     <div class="container">
       <div class="section-head">
@@ -99,14 +97,14 @@
       </div>
       <div class="compare">
         <table>
-          <caption class="sr-only">GS인증 1등급과 2등급 비교</caption>
+          <caption class="sr-only">1등급과 2등급, 무엇이 다른가</caption>
           <colgroup><col><col class="c-rec"><col></colgroup>
           <thead><tr><th scope="col">항목</th><th scope="col">1등급 <span class="is-rec">· 권장</span></th><th scope="col">2등급</th></tr></thead>
           <tbody>
             <tr><th scope="row">시험 범위</th><td>기능적합성 · 성능효율성 · 사용성 · 신뢰성 · 보안성 · 유지보수성 · 이식성 전 항목</td><td>기능적합성 중심, 일부 항목 축소</td></tr>
             <tr><th scope="row">결함 허용</th><td>치명·주요 결함 0건. 경미 결함도 수정 후 재확인</td><td>주요 결함 일부 허용</td></tr>
             <tr><th scope="row">공공 조달</th><td>종합쇼핑몰 등록 · 우선구매 대상</td><td>등록 가능하나 우선구매 제외</td></tr>
-            <tr><th scope="row">소요 기간</th><td>코서트 진행 6~8주</td><td>코서트 진행 4~6주</td></tr>
+            <tr><th scope="row">소요 기간</th><td>코서트 지원 시 6~8주</td><td>코서트 지원 시 4~6주</td></tr>
             <tr><th scope="row">코서트 사전 점검</th><td>기능 명세 대조 · 결함 예비 진단 · 매뉴얼 정비 · 시험 환경 구성</td><td>기능 명세 대조 · 매뉴얼 정비</td></tr>
             <tr><th scope="row">적합한 경우</th><td>공공 납품 · 우선구매 · 과제 증빙</td><td>민간 벤더 등록 · 출시 전 점검</td></tr>
           </tbody>
@@ -116,37 +114,35 @@
     </div>
   </section>
 
-  <!-- ④ 절차 -->
   <section class="section process section--bg section--bg-process" id="process" aria-labelledby="process-title" style="padding-top:0">
     <div class="container process__inner">
       <div class="process__text">
         <div>
-          <p class="eyebrow">진행 절차</p>
+          <p class="eyebrow">발급 프로세스</p>
           <h2 class="h2" id="process-title">접수 전에 결함을 잡습니다.<br>그래서 재시험이 없습니다.</h2>
         </div>
-        <p class="lead">인증기관 시험에서 결함이 나오면 수정 후 재시험으로 2~4주가 추가됩니다. 코서트는 접수 전 자체 점검으로 결함을 먼저 걸러 1회 시험으로 끝냅니다.</p>
-        <a class="btn btn--ink" href="#contact">상담 신청</a>
+        <p class="lead">인증기관 시험에서 결함이 나오면 수정 후 재시험으로 2~4주가 추가됩니다. 코서트는 접수 전 자체 점검으로 결함을 먼저 걸러 1회 시험으로 끝나도록 지원합니다.</p>
+        <a class="btn btn--ink" href="contact.html">견적문의</a>
       </div>
       <ol class="steps">
         <li class="step step--brand"><span class="step__no">1</span><div class="step__body"><strong>대상 · 등급 판별</strong><span class="caption">제품 유형과 목적(조달·과제·벤더 등록)을 확인해 등급과 인증기관을 정합니다.</span><span class="tag">코서트</span></div><span class="step__time">1~2일</span></li>
         <li class="step"><span class="step__no">2</span><div class="step__body"><strong>사전 결함 점검</strong><span class="caption">기능 명세와 실제 화면을 대조하고, 인증 시험 항목 기준으로 결함을 예비 진단합니다.</span><span class="tag">코서트</span></div><span class="step__time">1~2주</span></li>
         <li class="step"><span class="step__no">3</span><div class="step__body"><strong>서류 · 매뉴얼 정비</strong><span class="caption">사용자·설치 매뉴얼, 기능 목록, 테스트 케이스를 인증기관 양식에 맞춰 정리합니다.</span><span class="tag">코서트</span></div><span class="step__time">3~5일</span></li>
-        <li class="step"><span class="step__no">4</span><div class="step__body"><strong>인증기관 접수 · 계약</strong><span class="caption">접수 서류 제출과 시험 일정 확정, 견적 조율을 대행합니다.</span><span class="tag">코서트</span></div><span class="step__time">3~5일</span></li>
+        <li class="step"><span class="step__no">4</span><div class="step__body"><strong>인증기관 접수 · 계약</strong><span class="caption">접수 서류 제출과 시험 일정 확정, 견적 조율을 지원합니다.</span><span class="tag">코서트</span></div><span class="step__time">3~5일</span></li>
         <li class="step"><span class="step__no">5</span><div class="step__body"><strong>인증 시험</strong><span class="caption">인증기관이 시험을 수행합니다. 코서트는 시험 중 문의 대응과 경미 결함 수정을 조율합니다.</span><span class="tag">인증기관</span></div><span class="step__time">3~4주</span></li>
         <li class="step step--brand"><span class="step__no">6</span><div class="step__body"><strong>인증서 발급 · 조달 등록 지원</strong><span class="caption">인증서 수령 후 종합쇼핑몰 등록 등 후속 절차까지 안내합니다.</span><span class="tag">코서트</span></div><span class="step__time">1주</span></li>
       </ol>
     </div>
   </section>
 
-  <!-- ⑤ 준비 서류 -->
   <section class="section" id="docs" aria-labelledby="docs-title" style="padding-top:0">
     <div class="container">
       <div class="section-head">
         <div>
           <p class="eyebrow">준비 서류</p>
-          <h2 class="h2" id="docs-title">기업이 준비할 것과 코서트가 만드는 것</h2>
+          <h2 class="h2" id="docs-title">기업이 준비할 것</h2>
         </div>
-        <div class="section-head__aside"><p class="lead">서류 때문에 접수가 늦어지는 경우가 많습니다. 기업은 원본 자료만 주시면 나머지는 코서트가 인증기관 양식으로 작성합니다.</p></div>
+        <div class="section-head__aside"><p class="lead">서류 때문에 접수가 늦어지는 경우가 많습니다. 기업은 원본 자료만 주시면 나머지는 코서트가 인증기관 양식으로 정리합니다.</p></div>
       </div>
       <div class="docs__grid">
         <div class="doclist">
@@ -160,21 +156,47 @@
           </ul>
         </div>
         <div class="doclist">
-          <h3>코서트가 작성하는 것</h3>
+          <h3>코서트가 작성·지원하는 것</h3>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>인증 신청서<a href="#">양식</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>제품 설명서 (인증기관 양식)<a href="#">양식</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>테스트 케이스 · 기능 명세 대조표<a href="#">예시</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>사용자 · 설치 매뉴얼 정비본<a href="#">예시</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>사전 결함 점검 보고서<a href="#">예시</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>인증 신청서<span class="caption">인증기관 양식</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>제품 설명서<span class="caption">인증기관 양식</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>테스트 케이스 · 기능 명세 대조표<span class="caption">사전 점검 시 작성</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>사용자 · 설치 매뉴얼 정비본<span class="caption">접수 전 정비</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg>사전 결함 점검 보고서<span class="caption">접수 전 전달</span></li>
           </ul>
-          <p class="caption doclist__note">양식은 고객지원 › 양식 다운로드에서도 받을 수 있습니다.</p>
+          <p class="caption doclist__note">서류 양식은 견적문의 후 담당자가 메일로 보내드립니다.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ⑥ FAQ -->
+  <section class="section cases" id="cases" aria-labelledby="cases-title" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">사례</p>
+          <h2 class="h2" id="cases-title">GS인증 진행 사례</h2>
+        </div>
+        <div class="section-head__aside"><p class="lead muted">고객사 보호를 위해 익명으로 표기합니다. (시안 가상 사례)</p></div>
+      </div>
+      <div class="cases__grid">
+        <article class="case">
+          <div class="case__tags"><span class="tag tag--brand">SW</span><span class="tag">GS인증</span></div>
+          <div class="case__result"><p class="num">1등급</p><p class="caption">GS인증 첫 심사 통과</p></div>
+          <h3 class="case__title">사전 결함 점검으로 재심사를 없애다: 의료 정보 SW 기업 B사 GS인증 사례</h3>
+          <p class="case__desc">인증 접수 전 코서트가 기능 명세와 화면을 대조해 결함 34건을 선제 수정. 조달 등록 마감 3주 전 인증서 수령.</p>
+        </article>
+        <article class="case">
+          <div class="case__tags"><span class="tag tag--brand">SW</span><span class="tag">GS인증 + 성적서</span></div>
+          <div class="case__result"><p class="num">1회</p><p class="caption">같은 시험 데이터로 두 문서</p></div>
+          <h3 class="case__title">GS인증과 KOLAS 성적서를 한 번의 시험으로 받다: 물류 SW 기업 F사 사례</h3>
+          <p class="case__desc">과제 증빙과 조달 등록이 동시에 필요한 상황. 시험 항목을 두 문서 요건에 맞춰 설계해 시험 1회로 인증서와 성적서 동시 발급.</p>
+        </article>
+        <article class="case">
+          <div class="case__tags"><span class="tag tag--brand">R&amp;D 과제</span><span class="tag">SW 성능</span></div>
+          <div class="case__result"><p class="num">5주</p><p class="caption">접수에서 성적서 발급까지</p></div>
+          <h3 class="case__title">정량 목표 7개를 KOLAS 성적서로 증명하다: 스마트팩토리 SW 기업 A사 과제 종료 사례</h3>
+          <p class="case__desc">과제 계획서의 정량 목표가 시험 가능한 형태가 아니어서 항목을 재정의. 응답시간·처리량 등 7개 항목을 ISO/IEC 25023 기준으로 재작성해 1회 시험으로 통과.</p>
+        </article>
+      </div>
+    </div>
+  </section>
   <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
     <div class="container">
       <div class="section-head">
@@ -182,52 +204,35 @@
           <p class="eyebrow">자주 묻는 질문</p>
           <h2 class="h2" id="faq-title">GS인증 문의 전에 가장 많이 묻는 것</h2>
         </div>
+        <div class="section-head__aside"><a class="link" href="faq.html">전체 Q&amp;A 보기</a></div>
       </div>
       <div class="faq faq--wide">
-        <details open><summary>비용은 얼마나 드나요?</summary><p>인증기관 시험비와 코서트 컨설팅비로 구성됩니다. 시험비는 제품 규모(기능 수, 화면 수)에 따라 인증기관이 산정하고, 컨설팅비는 사전 점검 범위에 따라 달라집니다. 기능 목록을 주시면 영업일 2일 내 견적을 드립니다.</p></details>
-        <details><summary>시험 중 결함이 나오면 어떻게 되나요?</summary><p>경미 결함은 시험 기간 내 수정해 재확인받고, 주요 결함은 수정 후 재시험이 필요합니다. 코서트의 사전 점검은 이 재시험을 없애는 것이 목적이며, 진행 건의 98%가 1회 시험으로 통과했습니다. (시안 더미 수치)</p></details>
-        <details><summary>제품이 업데이트되면 인증을 다시 받아야 하나요?</summary><p>인증서에 명시된 버전 기준입니다. 기능 변경 폭에 따라 변경 인증 또는 신규 인증 여부가 갈리며, 코서트가 인증기관과 협의해 가장 부담이 적은 경로를 안내합니다.</p></details>
+        <details open><summary>비용은 얼마나 드나요?</summary><p>인증기관 시험비와 코서트 기술지원비로 구성됩니다. 시험비는 제품 규모(기능 수, 화면 수)에 따라 인증기관이 산정하고, 기술지원비는 사전 점검 범위에 따라 달라집니다. 기능 목록을 주시면 영업일 2일 내 견적을 드립니다.</p></details>
+        <details><summary>시험 중 결함이 나오면 어떻게 되나요?</summary><p>경미 결함은 시험 기간 내 수정해 재확인받고, 주요 결함은 수정 후 재시험이 필요합니다. 코서트의 사전 점검은 이 재시험을 없애는 것이 목적입니다.</p></details>
+        <details><summary>제품이 업데이트되면 인증을 다시 받아야 하나요?</summary><p>유효기간은 없지만 버전업·형상 변경 시 재인증이 필요합니다. 변경 폭에 따라 인증기관과 협의해 가장 부담이 적은 경로를 안내합니다.</p></details>
         <details><summary>SaaS나 웹 서비스도 GS인증을 받을 수 있나요?</summary><p>가능합니다. 웹·모바일 서비스는 접속 정보와 테스트 계정으로 시험을 진행하며, 설치형과 다른 점은 시험 환경 구성 방식입니다.</p></details>
-        <details><summary>인증에 걸리는 기간을 더 줄일 수 있나요?</summary><p>인증기관 시험 일정은 고정이라 3~4주는 줄이기 어렵습니다. 코서트가 줄이는 부분은 접수 전 준비(서류·결함 점검)와 재시험이며, 이 두 구간에서 평균 4~6주가 절약됩니다.</p></details>
+        <details><summary>인증에 걸리는 기간을 더 줄일 수 있나요?</summary><p>인증기관 처리기간은 신청일로부터 최소 30일이라 줄이기 어렵습니다. 코서트가 줄이는 부분은 접수 전 준비(서류·결함 점검)와 재시험 구간입니다.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- ⑦ 관련 서비스 -->
-  <section class="section" id="related" aria-labelledby="related-title" style="padding-top:0">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">관련 서비스</p>
-          <h2 class="h2" id="related-title">GS인증과 함께 진행하면 좋은 것</h2>
-        </div>
-      </div>
-      <div class="related__grid">
-        <a class="related" href="#"><strong>KOLAS 공인시험성적서</strong><p>과제 증빙이 목적이면 인증서와 성적서를 같은 시험 데이터로 함께 받아 기간을 줄일 수 있습니다.</p><span class="link">자세히 보기</span></a>
-        <a class="related" href="#"><strong>클라우드서비스 확인제</strong><p>SaaS 제품으로 공공 클라우드 시장에 진입하려면 GS인증 다음 단계로 필요합니다.</p><span class="link">자세히 보기</span></a>
-        <a class="related" href="#"><strong>제품 · 기술 자문</strong><p>개발 초기부터 인증 항목을 고려해 설계하면 사전 점검 기간 자체가 짧아집니다.</p><span class="link">자세히 보기</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑧ 담당 컨설턴트 + CTA -->
   <section class="section" id="contact" aria-labelledby="contact-title" style="padding-top:0">
     <div class="container">
-      <h2 class="sr-only" id="contact-title">담당 컨설턴트와 문의</h2>
+      <h2 class="sr-only" id="contact-title">견적문의</h2>
       <div class="consultant">
         <div class="consultant__card">
           <div class="consultant__avatar" aria-hidden="true">박</div>
           <div>
-            <span class="caption">GS인증 담당 컨설턴트</span>
+            <span class="caption">GS인증 담당</span>
             <strong>박재준 대표</strong>
-            <p>SW 품질 인증 컨설팅 경력 N년. GS인증 N건, KOLAS 성적서 N건 진행. (프로필 문구 확정 필요)</p>
+            <p>SW 품질 시험·인증 지원 경력 N년. GS인증 N건, KOLAS 성적서 N건 진행. (프로필 문구 확정 필요)</p>
             <div class="consultant__contact"><a href="tel:0260120821">02-6012-0821</a><a href="mailto:kocert821@kocert.net">kocert821@kocert.net</a></div>
           </div>
         </div>
         <div class="consultant__cta">
           <h3 class="h3">기능 목록만 보내주시면<br>영업일 2일 내 등급과 견적을 드립니다</h3>
           <p>화면·메뉴 단위 기능 목록이면 충분합니다. 없으면 제품 소개서로도 1차 판단이 가능합니다.</p>
-          <a class="btn btn--light" href="index.html#cta">견적 문의</a>
+          <a class="btn btn--light" href="contact.html">견적문의</a>
         </div>
       </div>
     </div>
@@ -240,17 +245,17 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <img src="assets/images/logo.png" alt="KOCERT (주)코서트" width="236" height="50">
-        <p class="caption">소프트웨어 · ICT 제품의 공인시험성적서와<br>국내 주요 인증 획득을 대행하는 인증 컨설팅 기업</p>
+        <p class="caption">KOLAS 공인시험기관 (인정번호 KT1353)<br>소프트웨어 · ICT 공인시험성적서 발급과<br>GS · KC · 클라우드서비스 확인제 인증 지원</p>
       </div>
-      <div class="footer__col"><strong>서비스</strong><a href="rnd.html">R&amp;D 기술서비스</a><a href="gs.html">GS인증</a><a href="kc.html">KC인증</a><a href="cloud.html">클라우드서비스 확인제</a><a href="rnd.html#related">기술 자문</a></div>
-      <div class="footer__col"><strong>사례 · 가이드</strong><a href="cases.html">고객 사례</a><a href="guides.html">인증 가이드</a><a href="guides.html#glossary">용어 사전</a></div>
-      <div class="footer__col"><strong>고객지원</strong><a href="contact.html">상담 신청</a><a href="contact.html?type=quote">견적 문의</a><a href="index.html#support">자주 묻는 질문</a><a href="contact.html#forms">양식 다운로드</a><a href="contact.html?type=feedback">불편 사항</a></div>
-      <div class="footer__col"><strong>회사</strong><a href="company.html">회사소개</a><a href="company.html#cert">KOLAS 인정서</a><a href="company.html#map">오시는 길</a><a href="#">공평성 선언서</a><a href="#">개인정보처리방침</a></div>
+      <div class="footer__col"><strong>시험</strong><a href="test-accredited.html">공인시험</a><a href="test-general.html">일반시험</a></div>
+      <div class="footer__col"><strong>인증</strong><a href="gs.html">GS인증</a><a href="kc.html">KC인증</a><a href="cloud.html">클라우드서비스확인제</a></div>
+      <div class="footer__col"><strong>고객지원</strong><a href="contact.html">견적문의</a><a href="faq.html">Q&amp;A</a><a href="contact.html?type=complaint">불만접수</a></div>
+      <div class="footer__col"><strong>회사소개</strong><a href="company.html">회사소개</a><a href="company.html#cert">KOLAS 인정서</a><a href="company.html#impartiality">공평성 선언서</a><a href="company.html#map">오시는 길</a><a href="privacy.html">개인정보처리방침</a></div>
     </div>
     <div class="footer__bottom">
       <div>
         <p class="footer__tel">02-6012-0821</p>
-        <p>(주)코서트 · 대표 박재준 · 사업자등록번호 398-81-03975<br>서울특별시 강서구 공항대로 242 열린M타워Ⅱ 1214호 · kocert821@kocert.net</p>
+        <p>(주)코서트 · 대표 박재준 · 사업자등록번호 398-81-03975<br>서울특별시 강서구 공항대로 242 열린M타워Ⅱ 1214호 (발산역 8번 출구 도보 2분) · kocert821@kocert.net</p>
       </div>
       <p>© 2026 Kocert Co., Ltd.</p>
     </div>
