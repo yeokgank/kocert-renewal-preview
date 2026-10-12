@@ -687,3 +687,12 @@ body.has-ambient { background: transparent; }
 .std__list dt { color: var(--color-muted); }
 .std__list dd { margin: 0; color: var(--color-title); }
 @media (max-width: 900px) { .std-grid { grid-template-columns: 1fr; } .std__head { grid-template-columns: 1fr; } .std__mark { justify-self: start; grid-auto-flow: column; align-items: center; } }
+
+.std-grid { grid-template-columns: 1fr; }
+.std { padding: 2.5rem; }
+.std__head { grid-template-columns: minmax(0, 1fr) auto; }
+.std__list div { grid-template-columns: 96px 1fr; }
+.compare--flat { padding: 0; background: transparent; border-radius: 0; }
+.compare--flat table { min-width: 0; }
+.compare--flat th, .compare--flat td { padding: 0.75rem 0.6rem; }
+.compare--flat tbody th { width: 14%; vertical-align: top; }
