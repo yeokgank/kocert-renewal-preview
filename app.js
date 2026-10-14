@@ -99,7 +99,7 @@
   }
 
   /* ---------- scroll reveal ---------- */
-  const revealTargets = $$('.section-head, .stat, .service, .case, .guide, .step, .use, .related, .policy, .bento > .card, .quick, .visual, .marks__row, .stats__table, .compare, .doclist, .faq--wide, .consultant > *, .cert, .map > *, .form-card, .form-aside > *, .cta__form, .band__inner > *');
+  const revealTargets = $$('.section-head, .stat, .service, .case, .guide, .step, .use, .related, .policy, .bento > .card, .quick, .visual, .stats__table, .compare, .doclist, .faq--wide, .consultant > *, .cert, .map > *, .form-card, .form-aside > *, .cta__form, .band__inner > *');
   if (!reduced && 'IntersectionObserver' in window) {
     revealTargets.forEach((el, i) => { el.classList.add('reveal'); el.style.setProperty('--d', `${(i % 4) * 70}ms`); });
     const io = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
