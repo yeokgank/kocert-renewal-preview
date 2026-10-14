@@ -60,54 +60,45 @@
           <div class="card">
             <h3 class="h3" style="font-size:1.125rem">이렇게 진행됩니다</h3>
             <ol class="faq" style="gap:0">
-              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">1일</strong> · 담당자 배정, 전화 또는 메일로 상황 확인</li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">1일</strong> · 담당자 배정, 연락처 또는 메일로 상황 확인</li>
               <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">2~3일</strong> · 필요한 성적서·인증 종류와 예상 일정, 견적 전달</li>
-              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">이후</strong> · 계약 후 항목 정의와 시험 접수 착수</li>
+              <li class="caption" style="padding:.5rem 0;border-top:1px solid var(--color-border)"><strong style="color:var(--color-title)">이후</strong> · 계약 진행 → 시험·인증 접수 착수</li>
             </ol>
           </div>
           <div class="card">
             <h3 class="h3" style="font-size:1.125rem">불만접수</h3>
-            <p class="caption">시험·인증 진행 중 불편했던 점은 대표가 직접 확인해 회신합니다. 위 탭에서 불만접수를 선택해 주세요.</p>
+            <p class="caption">시험·인증 진행 중 불편했던 점은 성적서번호와 함께 남겨 주시면 대표가 직접 확인해 회신합니다. 위 탭에서 불만접수를 선택해 주세요.</p>
             <p class="caption"><a class="link" href="privacy.html">개인정보처리방침</a></p>
           </div>
         </aside>
-        <form class="form-card" onsubmit="return false" aria-label="견적문의">
+        <form class="form-card" id="form-quote" onsubmit="return false" aria-label="견적문의">
           <div class="field">
             <span>필요한 서비스 <span class="req">*</span></span>
             <div class="chips">
-              <label class="chip"><input type="checkbox" checked><span>공인시험 (KOLAS 성적서)</span></label>
-              <label class="chip"><input type="checkbox"><span>일반시험</span></label>
-              <label class="chip"><input type="checkbox"><span>GS인증</span></label>
-              <label class="chip"><input type="checkbox"><span>KC인증</span></label>
-              <label class="chip"><input type="checkbox"><span>클라우드서비스확인제</span></label>
-              <label class="chip"><input type="checkbox"><span>아직 모르겠어요</span></label>
+              <label class="chip"><input type="radio" name="service" checked><span>시험</span></label>
+              <label class="chip"><input type="radio" name="service"><span>인증</span></label>
+              <label class="chip"><input type="radio" name="service"><span>기타</span></label>
             </div>
           </div>
           <div class="field-row">
-            <div class="field"><label for="f-company">기업명 <span class="req">*</span></label><input id="f-company" type="text" placeholder="(주)코서트"></div>
-            <div class="field"><label for="f-name">담당자 <span class="req">*</span></label><input id="f-name" type="text" placeholder="이름 · 직책"></div>
-          </div>
-          <div class="field-row">
+            <div class="field"><label for="f-company">업체명 <span class="req">*</span></label><input id="f-company" type="text" placeholder="(주)코서트"></div>
             <div class="field"><label for="f-tel">연락처 <span class="req">*</span></label><input id="f-tel" type="tel" placeholder="010-0000-0000"></div>
-            <div class="field"><label for="f-email">이메일 <span class="req">*</span></label><input id="f-email" type="email" placeholder="name@company.com"></div>
           </div>
-          <div class="field-row">
-            <div class="field"><label for="f-type">제품 유형</label><select id="f-type"><option>소프트웨어 (패키지 · SaaS)</option><option>ICT 기기 · 전자제품</option><option>데이터 · AI 모델</option><option>정보시스템 · 구축 사업</option><option>기타</option></select></div>
-            <div class="field"><label for="f-when">희망 일정</label><select id="f-when"><option>1개월 이내</option><option>1~3개월</option><option>3개월 이후</option><option>미정</option></select></div>
-          </div>
-          <div class="field">
-            <label for="f-purpose">목적</label>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="purpose" checked><span>R&amp;D 과제 평가</span></label>
-              <label class="chip"><input type="radio" name="purpose"><span>공공 조달 · 납품</span></label>
-              <label class="chip"><input type="radio" name="purpose"><span>제품 출시</span></label>
-              <label class="chip"><input type="radio" name="purpose"><span>벤더 등록 · 투자</span></label>
-            </div>
-          </div>
-          <div class="field"><label for="f-msg">상황 설명 <span class="req">*</span></label><textarea id="f-msg" placeholder="예) 스마트팩토리 SW 과제가 11월 종료인데, 계획서의 정량 목표 5개를 공인 성적서로 증빙해야 합니다. 목표 중 '응답시간 1초 이내'와 '정확도 95% 이상'이 시험 가능한지 모르겠습니다."></textarea></div>
-          <div class="field"><span>첨부 (선택)</span><div class="upload"><strong>계획서 · 사양서 · 기능 목록을 끌어다 놓거나 클릭해 선택</strong>PDF, DOCX, XLSX · 20MB 이하 · 여러 파일 가능</div></div>
-          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 기업명, 담당자, 연락처, 이메일이며 상담 목적으로만 사용하고 상담 종료 후 1년간 보관합니다. <a href="privacy.html" style="text-decoration:underline">개인정보처리방침 전문</a></span></label>
+          <div class="field"><label for="f-email">이메일 <span class="req">*</span></label><input id="f-email" type="email" placeholder="name@company.com"></div>
+          <div class="field"><label for="f-msg">문의내용 <span class="req">*</span></label><textarea id="f-msg" placeholder="예) 과제 종료가 11월이라 계획서의 정량 목표 5개를 공인시험성적서로 증빙해야 합니다. 시험 가능 여부와 견적을 알고 싶습니다."></textarea></div>
+          <div class="field"><span>첨부파일 (선택)</span><div class="upload"><strong>계획서 · 사양서 · 기능 목록을 끌어다 놓거나 클릭해 선택</strong>PDF, DOCX, XLSX · 20MB 이하 · 여러 파일 가능</div></div>
+          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 업체명, 연락처, 이메일이며 문의 회신 목적으로만 사용하고 상담 종료 후 1년간 보관합니다. <a href="privacy.html" style="text-decoration:underline">개인정보처리방침 전문</a></span></label>
           <button class="btn btn--ink" type="submit">견적문의</button>
+        </form>
+        <form class="form-card" id="form-complaint" onsubmit="return false" aria-label="불만접수" hidden>
+          <div class="field-row">
+            <div class="field"><label for="c-company">업체명 <span class="req">*</span></label><input id="c-company" type="text" placeholder="(주)코서트"></div>
+            <div class="field"><label for="c-email">메일주소 <span class="req">*</span></label><input id="c-email" type="email" placeholder="name@company.com"></div>
+          </div>
+          <div class="field"><label for="c-report">성적서번호 <span class="req">*</span></label><input id="c-report" type="text" placeholder="성적서 또는 인증서에 기재된 번호"></div>
+          <div class="field"><label for="c-msg">불만내용 <span class="req">*</span></label><textarea id="c-msg" placeholder="불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다."></textarea></div>
+          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 업체명, 메일주소, 성적서번호이며 불만 처리 목적으로만 사용하고 처리 종료 후 1년간 보관합니다. <a href="privacy.html" style="text-decoration:underline">개인정보처리방침 전문</a></span></label>
+          <button class="btn btn--ink" type="submit">불만접수</button>
         </form>
       </div>
     </div>
@@ -130,7 +121,7 @@
     <div class="footer__bottom">
       <div>
         <p class="footer__tel">02-6012-0821</p>
-        <p>(주)코서트 · 대표 박재준 · 사업자등록번호 398-81-03975<br>서울특별시 강서구 공항대로 242 열린M타워Ⅱ 1214호 (발산역 8번 출구 도보 2분) · kocert821@kocert.net</p>
+        <p>(주)코서트 · 대표 박재준 · 사업자등록번호 398-81-03975<br>서울특별시 강서구 공항대로 242, 1214호(열린M타워) · 발산역 8번 출구 도보 2분 · kocert821@kocert.net</p>
       </div>
       <p>© 2026 Kocert Co., Ltd.</p>
     </div>

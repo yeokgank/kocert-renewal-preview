@@ -89,21 +89,13 @@
     if (count) count.dataset.all = count.textContent;
   });
 
-  /* ---------- contact form tabs: 견적문의 / 불만접수 ---------- */
+  /* ---------- contact form tabs: 견적문의 / 불만접수 (폼 2종 전환) ---------- */
   const formTabs = $('.form-tabs .pills');
   if (formTabs) {
-    const form = $('.form-card'), submit = $('.form-card .btn'), msg = $('#f-msg'), svc = $$('.form-card .field')[0], purpose = $$('.form-card .field').find(f => f.querySelector('label[for="f-purpose"]'));
-    const apply = key => {
-      $$('.pill[role="tab"]', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key)));
-      form.setAttribute('aria-label', key); submit.textContent = key === '불만접수' ? '불만접수' : '견적문의';
-      const complaint = key === '불만접수';
-      if (svc) svc.hidden = complaint; if (purpose) purpose.hidden = complaint;
-      msg.placeholder = complaint ? '불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다.' : msg.dataset.ph;
-    };
-    msg.dataset.ph = msg.placeholder;
+    const forms = { '견적문의': $('#form-quote'), '불만접수': $('#form-complaint') };
+    const apply = key => { $$('.pill[role="tab"]', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key))); Object.entries(forms).forEach(([k, f]) => { if (f) f.hidden = k !== key; }); };
     formTabs.addEventListener('click', e => { const p = e.target.closest('.pill[role="tab"]'); if (p) apply(p.textContent.trim()); });
-    const type = new URLSearchParams(location.search).get('type');
-    if (type === 'complaint') apply('불만접수');
+    if (new URLSearchParams(location.search).get('type') === 'complaint') apply('불만접수');
   }
 
   /* ---------- scroll reveal ---------- */
