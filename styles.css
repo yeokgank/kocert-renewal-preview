@@ -674,3 +674,16 @@ body.has-ambient { background: transparent; }
 
 .form-card[hidden] { display: none; }
 .step { grid-template-columns: 56px 1fr; }
+
+/* ---- hero: full-width visual, quick panel below (2026-10-20) ---- */
+.hero__stage { grid-template-columns: 1fr; }
+.visual--media { min-height: 0; aspect-ratio: 2.3 / 1; max-height: 620px; }
+.quick { grid-template-columns: auto 1fr; align-items: center; column-gap: 2rem; }
+.quick__title { grid-column: 1; }
+.quick__tabs { grid-column: 2; justify-self: end; border-bottom: 0; }
+.quick__tab { padding: 0.35rem 0; }
+.quick__grid { grid-column: 1 / -1; grid-template-columns: repeat(6, 1fr); gap: 0.75rem; }
+.quick__foot { grid-column: 1 / -1; }
+@media (max-width: 1100px) { .quick__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .quick { grid-template-columns: 1fr; } .quick__title, .quick__tabs { grid-column: 1; justify-self: start; } .quick__tabs { border-bottom: 1px solid var(--color-border); width: 100%; } .visual--media { aspect-ratio: 16 / 10; } }
+@media (max-width: 600px) { .quick__grid { grid-template-columns: 1fr 1fr; } .visual--media { aspect-ratio: auto; min-height: 540px; } }
