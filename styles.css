@@ -699,3 +699,9 @@ body.has-ambient { background: transparent; }
 .visual--media::after { height: 75%; background: linear-gradient(180deg, rgba(14, 63, 117, 0) 0%, rgba(14, 63, 117, 0.45) 45%, rgba(14, 63, 117, 0.85) 100%); }
 @media (max-width: 900px) { .visual--media { aspect-ratio: 4 / 3; } }
 @media (max-width: 600px) { .visual--media { aspect-ratio: auto; min-height: 560px; } .visual--media .visual__note { left: var(--gutter); } .visual__title { font-size: 1.75rem; } .visual--media .visual__sub br { display: none; } }
+
+/* ---- certification card slideshows (2026-10-20) ---- */
+.service__slides { position: absolute; inset: 0; }
+.service__media { opacity: 0; transition: opacity 1400ms var(--ease); }
+.service__media.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .service__media { transition: none; } }

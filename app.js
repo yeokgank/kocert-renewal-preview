@@ -157,18 +157,22 @@
   const setScrollbarWidth = () => document.documentElement.style.setProperty('--sbw', `${window.innerWidth - document.documentElement.clientWidth}px`);
   setScrollbarWidth(); window.addEventListener('resize', setScrollbarWidth);
 
-  /* ---------- hero slideshow ---------- */
-  const slides = $$('.visual__slide');
-  if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let cur = 0;
-    const SLIDE_MS = 5000;
-    setInterval(() => {
+  /* ---------- slideshows: hero (5s) and certification cards (8s, staggered) ---------- */
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const startSlideshow = (slides, intervalMs, delayMs = 0) => {
+    if (slides.length < 2 || reducedMotion) return;
+    let cur = slides.findIndex(s => s.classList.contains('is-active'));
+    if (cur < 0) cur = 0;
+    const step = () => {
       if (document.hidden) return;
       slides[cur].classList.remove('is-active');
       cur = (cur + 1) % slides.length;
       slides[cur].classList.add('is-active');
-    }, SLIDE_MS);
-  }
+    };
+    setTimeout(() => setInterval(step, intervalMs), delayMs);
+  };
+  startSlideshow($$('.visual__slide'), 5000);
+  $$('.service__slides').forEach((box, i) => startSlideshow($$('.service__media', box), 8000, i * 2600));
 
   /* ---------- lazy videos: attach sources only when they will play and are near the viewport ---------- */
   const lazyVideos = $$('video[data-src]');
