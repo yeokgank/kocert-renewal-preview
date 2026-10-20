@@ -705,3 +705,11 @@ body.has-ambient { background: transparent; }
 .service__media { opacity: 0; transition: opacity 1400ms var(--ease); }
 .service__media.is-active { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .service__media { transition: none; } }
+
+/* ---- header: logo + KOLAS/ILAC marks (2026-10-20) ---- */
+.header__inner { gap: 2rem; }
+.header__logo img { height: 34px; width: auto; }
+.header__kolas { display: flex; align-items: center; gap: 0.6rem; padding-left: 1.25rem; margin-left: -0.5rem; border-left: 1px solid var(--color-border); color: var(--color-muted); }
+.header__kolas img { height: 36px; width: auto; }
+.header__kolas span { font-size: 11px; line-height: 1.3; letter-spacing: -0.01em; white-space: nowrap; }
+@media (max-width: 1200px) { .header__kolas { display: none; } }
