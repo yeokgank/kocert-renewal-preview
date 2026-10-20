@@ -147,10 +147,23 @@
     $$('.band').forEach(band => band.addEventListener('pointermove', e => { const r = band.getBoundingClientRect(); band.style.setProperty('--mx', `${((e.clientX - r.left) / r.width * 100).toFixed(1)}%`); band.style.setProperty('--my', `${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`); band.classList.add('has-spot'); }));
     const visual = $('.visual');
     if (visual) {
-      const media = $('.visual__video', visual) || visual, note = $('.visual__note', visual); let raf = 0, tx = 0, ty = 0;
+      const media = $('.visual__slides', visual) || visual, note = $('.visual__note', visual); let raf = 0, tx = 0, ty = 0;
       visual.addEventListener('pointermove', e => { const r = visual.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - .5); ty = ((e.clientY - r.top) / r.height - .5); if (!raf) raf = requestAnimationFrame(() => { raf = 0; media.style.transform = `scale(1.04) translate(${(-tx * 12).toFixed(1)}px, ${(-ty * 8).toFixed(1)}px)`; if (note) note.style.transform = `translate(${(tx * 6).toFixed(1)}px, ${(ty * 4).toFixed(1)}px)`; }); });
       visual.addEventListener('pointerleave', () => { media.style.transform = ''; if (note) note.style.transform = ''; });
     }
+  }
+
+  /* ---------- hero slideshow ---------- */
+  const slides = $$('.visual__slide');
+  if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let cur = 0;
+    const SLIDE_MS = 5000;
+    setInterval(() => {
+      if (document.hidden) return;
+      slides[cur].classList.remove('is-active');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('is-active');
+    }, SLIDE_MS);
   }
 
   /* ---------- lazy videos: attach sources only when they will play and are near the viewport ---------- */

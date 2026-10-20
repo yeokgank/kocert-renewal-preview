@@ -473,11 +473,14 @@ button { font: inherit; cursor: pointer; }
 /* ---- media backgrounds ---- */
 .visual--media { background-image: url("media/bg/hero-light_1920x1080.jpg"); background-size: cover; background-position: center; }
 .visual--media::before { display: none; }
-.visual__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.visual--media .visual__note { z-index: 1; }
+.visual__slides { position: absolute; inset: 0; overflow: hidden; }
+.visual__slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1); transition: opacity 1400ms var(--ease), transform 7000ms linear; }
+.visual__slide.is-active { opacity: 1; transform: scale(1.06); }
+.visual--media .visual__note { z-index: 1; background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 1.1rem 1.25rem; border-radius: 16px; box-shadow: 0 10px 30px -18px rgba(14, 63, 117, 0.45); }
+.visual--media .visual__note .caption { color: var(--color-text); }
 .band--image { background-size: cover; background-position: center; background-color: var(--color-band); }
-@media (prefers-reduced-motion: reduce) { .visual__video { display: none; } }
-@media (max-width: 600px) { .visual--media { background-image: url("media/bg/hero-mobile_1080x1920.jpg"); } .visual__video { display: none; } }
+@media (prefers-reduced-motion: reduce) { .visual__slide { transition: none; transform: none; } }
+
 
 /* ---- interaction layer ---- */
 .header { transition: box-shadow var(--duration), background-color var(--duration); }
@@ -514,7 +517,7 @@ body.is-locked { overflow: hidden; }
 .band { position: relative; overflow: hidden; }
 .band.has-spot::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(143, 193, 238, 0.16), transparent 60%); transition: opacity 300ms; }
 .band__inner { position: relative; z-index: 1; }
-.visual__video, .visual__note { transition: transform 500ms var(--ease); will-change: transform; }
+.visual__slides, .visual__note { transition: transform 500ms var(--ease); will-change: transform; }
 
 /* ---- extra background layers ---- */
 .section--bg { position: relative; isolation: isolate; }
@@ -526,7 +529,7 @@ body.is-locked { overflow: hidden; }
 .page-hero::before { content: ""; position: absolute; inset: 0 0 auto; height: 100%; z-index: -1; background: url("media/bg/page-hero_2560x900.jpg") center / cover no-repeat; opacity: 0.9; mask-image: linear-gradient(180deg, #000 60%, transparent); }
 .footer { position: relative; isolation: isolate; }
 .footer::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("media/bg/footer-grid_2560x600.jpg") center top / cover no-repeat; opacity: 0.9; }
-.service__visual { background-image: url("media/bg/docs-light_1600x1200.png"); background-size: cover; background-position: 30% 40%; }
+
 .service__visual .badge { backdrop-filter: blur(2px); }
 .consultant__cta { background-image: url("media/bg/band-dark_1920x900.jpg"); background-size: cover; background-position: center; }
 
@@ -538,30 +541,30 @@ body.is-locked { overflow: hidden; }
 }
 
 /* ---- video layers ---- */
-.band__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+.band__media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
 .band.has-spot::after { z-index: 1; }
 .service__visual { position: relative; overflow: hidden; }
-.service__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.service__media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .service__visual .badge { position: relative; z-index: 1; }
-.page-hero--video::before { display: none; }
-.page-hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 50%; z-index: -1; opacity: 0.85; mask-image: linear-gradient(90deg, rgba(0,0,0,.35), #000 60%), linear-gradient(180deg, #000 55%, transparent); mask-composite: intersect; -webkit-mask-composite: source-in; }
+.page-hero--media::before { display: none; }
+.page-hero__media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 50%; z-index: -1; opacity: 0.85; mask-image: linear-gradient(90deg, rgba(0,0,0,.35), #000 60%), linear-gradient(180deg, #000 55%, transparent); mask-composite: intersect; -webkit-mask-composite: source-in; }
 .player { background: var(--color-band); border-radius: var(--radius-card); overflow: hidden; }
 .player__video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
 .player__meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--color-card); flex-wrap: wrap; }
-@media (max-width: 900px) { .page-hero__video { object-position: 50% 30%; opacity: 0.5; mask-image: linear-gradient(180deg, #000 50%, transparent); } }
-@media (prefers-reduced-motion: reduce) { .band__video, .service__video, .page-hero__video { display: none; } }
+@media (max-width: 900px) { .page-hero__media { object-position: 50% 30%; opacity: 0.5; mask-image: linear-gradient(180deg, #000 50%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .band__media, .service__media, .page-hero__media { display: none; } }
 
 /* ---- video layer placement fixes ---- */
 .service__visual .badge { position: absolute; left: 1.25rem; bottom: 1.25rem; width: 72px; height: 72px; z-index: 1; }
 .service__visual .badge__in { width: 58px; height: 58px; font-size: 0.95rem; }
 .service__visual .badge__in small { display: none; }
-.service__video { object-position: 50% 45%; }
-.band__video { object-position: 100% 50%; opacity: 0.8; }
+.service__media { object-position: 50% 45%; }
+.band__media { object-position: 70% 50%; opacity: 0.8; }
 .band::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(90deg, rgba(14, 63, 117, 0.96) 0%, rgba(14, 63, 117, 0.85) 40%, rgba(14, 63, 117, 0.15) 75%, rgba(14, 63, 117, 0) 100%); }
-.page-hero--video .page-hero__row { grid-template-columns: minmax(0, 640px) minmax(0, 480px); }
-.page-hero__video { left: 12%; width: 88%; opacity: 0.55; mask-image: linear-gradient(90deg, transparent 32%, #000 52%), linear-gradient(180deg, #000 55%, transparent); }
-@media (max-width: 900px) { .page-hero--video .page-hero__row { grid-template-columns: 1fr; } .page-hero__video { left: 0; opacity: 0.4; mask-image: linear-gradient(180deg, #000 50%, transparent); } .band::before { background: rgba(14, 63, 117, 0.7); } }
-.band__video { z-index: 0; }
+.page-hero--media .page-hero__row { grid-template-columns: minmax(0, 640px) minmax(0, 480px); }
+.page-hero__media { left: 12%; width: 88%; opacity: 0.55; mask-image: linear-gradient(90deg, transparent 32%, #000 52%), linear-gradient(180deg, #000 55%, transparent); }
+@media (max-width: 900px) { .page-hero--media .page-hero__row { grid-template-columns: 1fr; } .page-hero__media { left: 0; opacity: 0.4; mask-image: linear-gradient(180deg, #000 50%, transparent); } .band::before { background: rgba(14, 63, 117, 0.7); } }
+.band__media { z-index: 0; }
 .band::before { z-index: 1; background: linear-gradient(90deg, rgba(14, 63, 117, 0.97) 0%, rgba(14, 63, 117, 0.92) 48%, rgba(14, 63, 117, 0.35) 72%, rgba(14, 63, 117, 0.05) 100%); }
 .band.has-spot::after { z-index: 2; }
 .band__inner { z-index: 3; }
@@ -612,9 +615,9 @@ body.has-ambient { background: transparent; }
 .chip-f--d { right: 8%; bottom: 8%; animation-delay: -1.5s; animation-duration: 11s; }
 .chip-f:hover { background: #fff; }
 @keyframes chip-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
-.visual--media { background-image: url("media/video/kocert_hero_1920x1080_poster.jpg"); }
+
 @media (max-width: 1100px) { .chip-f--b { display: none; } }
-@media (max-width: 600px) { .chip-f--c, .chip-f--d { display: none; } .chip-f--a { right: 4%; top: auto; bottom: 6%; } .visual--media { background-image: url("media/bg/hero-mobile_1080x1920.jpg"); } }
+@media (max-width: 600px) { .chip-f--c, .chip-f--d { display: none; } .chip-f--a { right: 4%; top: auto; bottom: 6%; } }
 @media (prefers-reduced-motion: reduce) { .chip-f { animation: none; } }
 
 /* ---- quick service card: bright variant ---- */
