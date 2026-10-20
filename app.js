@@ -153,6 +153,10 @@
     }
   }
 
+  /* ---------- scrollbar width for full-bleed sections ---------- */
+  const setScrollbarWidth = () => document.documentElement.style.setProperty('--sbw', `${window.innerWidth - document.documentElement.clientWidth}px`);
+  setScrollbarWidth(); window.addEventListener('resize', setScrollbarWidth);
+
   /* ---------- hero slideshow ---------- */
   const slides = $$('.visual__slide');
   if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

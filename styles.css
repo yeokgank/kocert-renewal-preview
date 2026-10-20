@@ -687,3 +687,15 @@ body.has-ambient { background: transparent; }
 @media (max-width: 1100px) { .quick__grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) { .quick { grid-template-columns: 1fr; } .quick__title, .quick__tabs { grid-column: 1; justify-self: start; } .quick__tabs { border-bottom: 1px solid var(--color-border); width: 100%; } .visual--media { aspect-ratio: 16 / 10; } }
 @media (max-width: 600px) { .quick__grid { grid-template-columns: 1fr 1fr; } .visual--media { aspect-ratio: auto; min-height: 540px; } }
+
+/* ---- hero: full-bleed visual, slogan on image (2026-10-20) ---- */
+.hero { padding-block: 0; }
+.hero__stage { gap: var(--gap-card); }
+.visual--media { width: calc(100vw - var(--sbw, 0px)); margin-left: calc(50% - 50vw + var(--sbw, 0px) / 2); border-radius: 0; aspect-ratio: 2.4 / 1; min-height: 480px; max-height: 720px; }
+.visual--media .visual__note { left: max(var(--gutter), calc(50vw - var(--sbw, 0px) / 2 - var(--container) / 2)); right: var(--gutter); bottom: clamp(2rem, 5vw, 4.5rem); max-width: 760px; }
+.visual__title { color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em; }
+.visual--media .visual__sub { margin-top: 1rem; font-size: var(--text-body, 1rem); color: rgba(255, 255, 255, 0.88); }
+.visual__cta { margin-top: 1.5rem; }
+.visual--media::after { height: 75%; background: linear-gradient(180deg, rgba(14, 63, 117, 0) 0%, rgba(14, 63, 117, 0.45) 45%, rgba(14, 63, 117, 0.85) 100%); }
+@media (max-width: 900px) { .visual--media { aspect-ratio: 4 / 3; } }
+@media (max-width: 600px) { .visual--media { aspect-ratio: auto; min-height: 560px; } .visual--media .visual__note { left: var(--gutter); } .visual__title { font-size: 1.75rem; } .visual--media .visual__sub br { display: none; } }
