@@ -565,6 +565,9 @@ body.is-locked { overflow: hidden; }
 .band__media { object-position: 70% 50%; opacity: 0.8; }
 .band::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(90deg, rgba(14, 63, 117, 0.96) 0%, rgba(14, 63, 117, 0.85) 40%, rgba(14, 63, 117, 0.15) 75%, rgba(14, 63, 117, 0) 100%); }
 .page-hero--media .page-hero__row { grid-template-columns: minmax(0, 640px) minmax(0, 480px); }
+/* 인증 3페이지(GS·KC·클라우드) 히어로 높이 통일: 가장 긴 GS 정보 카드 높이에 맞춤 */
+@media (min-width: 1280px) { .page-hero--media .page-hero__row { min-height: 27.1rem; } }
+@media (min-width: 901px) and (max-width: 1279px) { .page-hero--media .page-hero__row { min-height: 30.3rem; } }
 .page-hero__media { left: 12%; width: 88%; opacity: 0.55; mask-image: linear-gradient(90deg, transparent 32%, #000 52%), linear-gradient(180deg, #000 55%, transparent); }
 @media (max-width: 900px) { .page-hero--media .page-hero__row { grid-template-columns: 1fr; } .page-hero__media { left: 0; opacity: 0.4; mask-image: linear-gradient(180deg, #000 50%, transparent); } .band::before { background: rgba(14, 63, 117, 0.7); } }
 .band__media { z-index: 0; }
