@@ -213,8 +213,19 @@
   }
 
   /* ---------- mark current nav item ---------- */
-  const here = location.pathname.split('/').pop() || 'index.html';
-  $$('.nav__sub a, .drawer__sub a').forEach(a => { const h = a.getAttribute('href').split('#')[0].split('?')[0]; if (h && h === here) { a.setAttribute('aria-current', 'page'); const top = a.closest('.nav__item'); if (top) $(':scope > a', top).setAttribute('aria-current', 'page'); } });
+  /* 상담문의(단독)와 고객지원>견적문의가 같은 contact.html 이라, 단독 링크가 현재면 상위 메뉴는 표시하지 않는다 */
+  const here = (location.pathname.split('/').pop() || 'index.html') + location.search;
+  const isHere = a => a.getAttribute('href').split('#')[0] === here;
+  $$('.nav, .drawer__nav').forEach(nav => {
+    const solo = $$(':scope > a', nav).filter(a => !a.hasAttribute('aria-haspopup'));
+    solo.forEach(a => isHere(a) ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+    const soloHit = solo.some(isHere);
+    $$('.nav__sub a, .drawer__sub a', nav).filter(isHere).forEach(a => {
+      a.setAttribute('aria-current', 'page');
+      const top = a.closest('.nav__item') ? $(':scope > a', a.closest('.nav__item')) : a.closest('.drawer__sub').previousElementSibling;
+      if (soloHit) top.removeAttribute('aria-current'); else top.setAttribute('aria-current', 'page');
+    });
+  });
   /* hover/focus dropdowns */
   $$('.nav__item').forEach(it => { const trigger = $(':scope > a', it); it.addEventListener('focusin', () => it.classList.add('is-open')); it.addEventListener('focusout', e => { if (!it.contains(e.relatedTarget)) it.classList.remove('is-open'); }); trigger.addEventListener('keydown', e => { if (e.key === 'ArrowDown') { e.preventDefault(); const f = $('.nav__sub a', it); if (f) f.focus(); } }); it.addEventListener('keydown', e => { if (e.key === 'Escape') { it.classList.remove('is-open'); trigger.focus(); } }); });
 })();
