@@ -213,7 +213,7 @@
   }
 
   /* ---------- mark current nav item ---------- */
-  /* 상담문의(단독)와 고객지원>견적문의가 같은 contact.html 이라, 단독 링크가 현재면 상위 메뉴는 표시하지 않는다 */
+  /* 고객지원은 contact.html?type=quote, 상담문의(단독)는 contact.html 로 구분한다. 단독 링크가 현재면 상위 메뉴는 표시하지 않는다 */
   const here = (location.pathname.split('/').pop() || 'index.html') + location.search;
   const isHere = a => a.getAttribute('href').split('#')[0] === here;
   $$('.nav, .drawer__nav').forEach(nav => {
