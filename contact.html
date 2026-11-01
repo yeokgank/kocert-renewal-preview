@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>상담문의 · 견적문의 | 코서트</title>
 <meta name="description" content="코서트 견적문의와 불만접수. 영업일 1일 내 담당자가 연락드립니다.">
-<link rel="stylesheet" href="styles.css?v=20261020g">
+<link rel="stylesheet" href="styles.css?v=20261101">
 </head>
 <body>
 
 <header class="header">
   <div class="container header__inner">
-    <a class="header__logo" href="index.html" aria-label="코서트 메인"><img src="media/brand/kocert-logo_465x102.png" alt="KOCERT (주)코서트" width="155" height="34"></a><div class="header__kolas"><img src="media/brand/kolas-ilac-marks_328x120.png" alt="ILAC-MRA · KOLAS" width="98" height="36"><span>KOLAS 공인시험기관<br>(KT:1353)</span></div>
+    <a class="header__logo" href="index.html" aria-label="코서트 메인"><img src="media/brand/kocert-logo_465x102.png" alt="KOCERT (주)코서트" width="155" height="34"></a><div class="header__kolas"><img src="media/brand/kolas-ilac-marks_328x120.png" alt="ILAC-MRA · KOLAS" width="98" height="36"><span>KOLAS 공인시험기관<br>(KT1353)</span></div>
     <nav class="nav" aria-label="주 메뉴">
       <div class="nav__item has-sub"><a href="test-accredited.html" aria-haspopup="true">시험</a><div class="nav__sub"><a href="test-accredited.html">공인시험</a><a href="test-general.html">일반시험(V&amp;V)</a></div></div>
       <div class="nav__item has-sub"><a href="gs.html" aria-haspopup="true">인증</a><div class="nav__sub"><a href="gs.html">GS인증</a><a href="kc.html">KC인증</a><a href="cloud.html">클라우드서비스확인제</a></div></div>
@@ -37,6 +37,7 @@
           <p class="eyebrow">상담문의 · 견적문의</p>
           <h1 class="h1" id="page-title">무엇이 필요한지 몰라도<br>여기서 시작하면 됩니다</h1>
           <p class="lead" style="margin-top:1.5rem">성적서인지 인증인지, 공인인지 일반인지 정해지지 않아도 괜찮습니다. 상황만 적어 주시면 영업일 1일 내 담당자가 연락드립니다. 일반시험은 영업일 3일 내 시험 가능 여부·견적·발급 예정일을 회신합니다.</p>
+          <p class="lead" id="hero-lead-complaint" style="margin-top:1.5rem" hidden>성적서 발급 과정에서 불편을 겪으셨다면 연락 주십시오.</p>
         </div>
       </div>
     </div>
@@ -67,7 +68,7 @@
           </div>
           <div class="card">
             <h3 class="h3" style="font-size:1.125rem">불만접수</h3>
-            <p class="caption">시험·인증 진행 중 불편했던 점은 성적서번호와 함께 남겨 주시면 대표가 직접 확인해 회신합니다. 위 탭에서 불만접수를 선택해 주세요.</p>
+            <p class="caption">시험·인증 진행 중 불편했던 점을 남겨 주시면 대표가 직접 확인해 회신합니다. 위 탭에서 불만접수를 선택해 주세요.</p>
             <p class="caption"><a class="link" href="privacy.html">개인정보처리방침</a></p>
           </div>
         </aside>
@@ -92,12 +93,11 @@
         </form>
         <form class="form-card" id="form-complaint" onsubmit="return false" aria-label="불만접수" hidden>
           <div class="field-row">
-            <div class="field"><label for="c-company">업체명 <span class="req">*</span></label><input id="c-company" type="text" placeholder="(주)코서트"></div>
-            <div class="field"><label for="c-email">메일주소 <span class="req">*</span></label><input id="c-email" type="email" placeholder="name@company.com"></div>
+            <div class="field"><label for="c-company">업체명(담당자) <span class="req">*</span></label><input id="c-company" type="text" placeholder="(주)코서트 홍길동"></div>
+            <div class="field"><label for="c-tel">연락처 <span class="req">*</span></label><input id="c-tel" type="tel" placeholder="010-0000-0000"></div>
           </div>
-          <div class="field"><label for="c-report">성적서번호 <span class="req">*</span></label><input id="c-report" type="text" placeholder="성적서 또는 인증서에 기재된 번호"></div>
-          <div class="field"><label for="c-msg">불만내용 <span class="req">*</span></label><textarea id="c-msg" placeholder="불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다."></textarea></div>
-          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 업체명, 메일주소, 성적서번호이며 불만 처리 목적으로만 사용하고 처리 종료 후 1년간 보관합니다. <a href="privacy.html" style="text-decoration:underline">개인정보처리방침 전문</a></span></label>
+          <div class="field"><label for="c-msg">불만 내용 <span class="req">*</span></label><textarea id="c-msg" placeholder="불편했던 상황과 일시, 담당자를 알려주시면 대표가 직접 확인해 회신합니다."></textarea></div>
+          <label class="consent"><input type="checkbox"><span>개인정보 수집·이용에 동의합니다. 수집 항목은 업체명(담당자), 연락처이며 불만 처리 목적으로만 사용하고 처리 종료 후 1년간 보관합니다. <a href="privacy.html" style="text-decoration:underline">개인정보처리방침 전문</a></span></label>
           <button class="btn btn--ink" type="submit">불만접수</button>
         </form>
       </div>
@@ -128,6 +128,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=20261020d" defer></script>
+<script src="app.js?v=20261101" defer></script>
 </body>
 </html>

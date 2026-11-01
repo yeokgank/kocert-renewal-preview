@@ -30,43 +30,6 @@
     window.matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) set(false); });
   }
 
-  /* ---------- quick service tabs (home hero) ---------- */
-  const ICON = {
-    doc: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
-    chart: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15l3-3 2 2 5-5"/>',
-    list: '<path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="17" r="3"/>',
-    link: '<circle cx="8" cy="8" r="3"/><circle cx="16" cy="16" r="3"/><path d="M10.5 9.5l3 3M5 20l3-2M19 4l-3 2"/>',
-    shield: '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
-    cloud: '<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/>',
-    data: '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
-    check: '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
-    grade: '<path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.3 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z"/>',
-    bug: '<path d="M8 9V7a4 4 0 0 1 8 0v2M5 13h14M6 9h12v7a6 6 0 0 1-12 0z"/>',
-    cart: '<path d="M3 4h2l2.5 11h11L21 7H6.5"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>',
-    chat: '<path d="M4 5h16v11H9l-5 4z"/>',
-    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
-    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>',
-    map: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>',
-    download: '<path d="M12 4v11M7 10l5 5 5-5M4 19h16"/>',
-  };
-  const TABS = {
-    '시험성적서': [['doc', '공인시험<br>성적서', 'test-accredited.html'], ['chart', '일반시험<br>성적서', 'test-general.html'], ['check', '기능적합성<br>시험', 'test-accredited.html#compare'], ['data', '데이터 품질<br>시험', 'test-accredited.html#compare'], ['list', '평가 항목<br>정의', 'test-accredited.html#process'], ['target', '발급<br>프로세스', 'test-accredited.html#process']],
-    '인증': [['shield', 'GS인증', 'gs.html'], ['grade', 'KC인증', 'kc.html'], ['cloud', '클라우드<br>확인제', 'cloud.html'], ['target', '등급 · 유형<br>판별', 'gs.html#compare'], ['bug', '사전 결함<br>점검', 'gs.html#process'], ['cart', '조달 등록<br>지원', 'gs.html#uses']],
-    '고객지원': [['chat', '견적문의', 'contact.html'], ['list', 'Q&amp;A', 'faq.html'], ['bug', '불만접수', 'contact.html?type=complaint'], ['map', '오시는 길', 'company.html#map'], ['check', '공평성<br>선언서', 'company.html#impartiality'], ['calendar', '전화<br>02-6012-0821', 'tel:0260120821']],
-  };
-  const quick = $('.quick');
-  if (quick) {
-    const tabs = $$('.quick__tab', quick), grid = $('.quick__grid', quick);
-    const render = name => {
-      grid.innerHTML = TABS[name].map(([ic, label, href]) => `<a class="quick__item" href="${href}"><span class="quick__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">${ICON[ic]}</svg></span>${label}</a>`).join('');
-      grid.classList.remove('is-swap'); void grid.offsetWidth; grid.classList.add('is-swap');
-    };
-    tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => { tabs.forEach(t => t.setAttribute('aria-selected', 'false')); tab.setAttribute('aria-selected', 'true'); render(tab.textContent.trim()); });
-      tab.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click(); } });
-    });
-  }
-
   /* ---------- filters (cases / guides): pills filter cards by tag text ---------- */
   $$('.pills[role="tablist"]').forEach(pills => {
     if (pills.closest('.form-tabs')) return;
@@ -93,7 +56,7 @@
   const formTabs = $('.form-tabs .pills');
   if (formTabs) {
     const forms = { '견적문의': $('#form-quote'), '불만접수': $('#form-complaint') };
-    const apply = key => { $$('.pill[role="tab"]', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key))); Object.entries(forms).forEach(([k, f]) => { if (f) f.hidden = k !== key; }); };
+    const apply = key => { $$('.pill[role="tab"]', formTabs).forEach(p => p.setAttribute('aria-selected', String(p.textContent.trim() === key))); Object.entries(forms).forEach(([k, f]) => { if (f) f.hidden = k !== key; }); const leadQ = $('.page-hero .lead:not(#hero-lead-complaint)'), leadC = $('#hero-lead-complaint'); if (leadQ && leadC) { leadQ.hidden = key === '불만접수'; leadC.hidden = key !== '불만접수'; } };
     formTabs.addEventListener('click', e => { const p = e.target.closest('.pill[role="tab"]'); if (p) apply(p.textContent.trim()); });
     if (new URLSearchParams(location.search).get('type') === 'complaint') apply('불만접수');
   }
